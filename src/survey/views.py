@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 
 
 # Create your views here.
 def home_view(request):
     print("User on website")
-    return render(request, 'home.html')
+    return JsonResponse({"message": "hi"})
