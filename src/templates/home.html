@@ -1,19 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Allerzen</title>
 </head>
 <body>
-
-    {% for i in '0123456789'|make_list %}
-        <h2>Test 1</h2>
-    {% endfor %}
-
-    {% for i in range %}
-        <h2>Test 2</h2>
-    {% endfor %}
-
 
 <!--    for loop-->
     <h1>Welcome to Allerzen</h1>
@@ -27,19 +20,33 @@
 
     <form action="." method="POST">
         {% csrf_token %}
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name">
-        <br>
-        <br>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name">
-        <br>
-        <br>
-        <label for="age">Age:</label>
-        <input type="text" id="age" name="age">
-        <br>
-        <br>
-        <input type="submit">
+        <section id="general-info">
+            <h3>General Information</h3>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age">
+            <input type="submit">
+        </section>
+
+        <hr>
+
+        <section id="symptoms">
+            <h3>Symptoms</h3>
+
+            {% for symp in symptoms_list %}
+                <input type="checkbox" id={{symp}} name={{symp}} value={{symp}}>
+                <label for={{symp}}>{{symp}}</label>
+            {% endfor %}
+
+
+<!--            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">-->
+<!--            <label for="vehicle3"> I have a boat</label><br>-->
+        </section>
+
+
     </form>
 
 

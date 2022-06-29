@@ -1,0 +1,13 @@
+body {
+    background-color: lightblue;
+    margin: 50px 100px;
+}
+
+#general-info > input {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#simptoms > input {
+
+}
