@@ -22,8 +22,6 @@ allergies = {"pollen": ["sneezing", "nasal congestion", "sinus pressure", "runny
                       "lightheadedness", "anaphylaxis"]}
 
 
-
-
 symptoms = []
 for key in allergies:
     symptoms += allergies[key]

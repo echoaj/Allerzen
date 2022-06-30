@@ -5,7 +5,7 @@ LIST OF COMMON ALLERGIES
 
 # TODO: Alex
 FIGURE OUT THE RIGHT QUESTIONS TO ASK THE USER
-Simptoms:
+Symptoms:
     sneezing and an itchy, runny or blocked nose (allergic rhinitis)
     itchy, red, watering eyes (conjunctivitis)
     wheezing, chest tightness, shortness of breath and a cough
