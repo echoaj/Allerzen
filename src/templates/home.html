@@ -36,11 +36,18 @@
         <section id="symptoms">
             <h3>Symptoms</h3>
 
-            {% for symp in symptoms_list %}
-                <input type="checkbox" id={{symp}} name={{symp}} value={{symp}}>
-                <label for={{symp}}>{{symp}}</label>
-            {% endfor %}
-
+            <table>
+                {% for row in symptoms_matrix %}
+                    <tr>
+                        {% for symp in row %}
+                            <td>
+                                <input type="checkbox" id={{symp}} name={{symp}} value={{symp}}>
+                                <label for={{symp}}>{{ symp }}</label>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
 
 <!--            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">-->
 <!--            <label for="vehicle3"> I have a boat</label><br>-->

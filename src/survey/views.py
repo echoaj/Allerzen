@@ -32,14 +32,24 @@ for symp in symptoms:
     item = symp.replace(" ", "_").replace("/", "_")
     all_symptoms.append(item)
 
-print(all_symptoms)
+
+allergy_symptoms = []
+temp = []
+for i in range(len(all_symptoms)):
+    temp.append(all_symptoms[i])
+    if i % 3 == 2:
+        allergy_symptoms.append(temp)
+        temp = []
+# loop through all_symptoms list and
+# append an empty list containing 3 items in it
+print(allergy_symptoms)
 
 
 # Create your views here.
 def home_view(request):
     print("User on website")
     if request.method == "GET":
-        return render(request, 'home.html', {"symptoms_list": all_symptoms})
+        return render(request, 'home.html', {"symptoms_matrix": allergy_symptoms})
     elif request.method == "POST":
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
