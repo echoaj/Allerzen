@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load survey %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,7 +42,7 @@
                         {% for symp in row %}
                             <td>
                                 <input type="checkbox" id={{symp}} name={{symp}} value={{symp}}>
-                                <label for={{symp}}>{{ symp }}</label>
+                                <label for={{symp}}>{{ symp | replace_ }}</label>
                             </td>
                         {% endfor %}
                     </tr>
