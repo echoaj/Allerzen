@@ -35,6 +35,7 @@ for symp in symptoms:
 
 allergy_symptoms = []
 temp = []
+
 for i in range(len(all_symptoms)):
     temp.append(all_symptoms[i])
     if i % 3 == 2:
@@ -44,17 +45,31 @@ for i in range(len(all_symptoms)):
 # append an empty list containing 3 items in it
 print(allergy_symptoms)
 
+seasons = [["January", "February", "March", "April"], ["May",
+           "June", "July", "August"], ["September", "October",
+           "November", "December"]]
+
+medical_conditions = [["Asthma", "Eczema", "Hay Fever", "Lactose Intolerance"],
+                      ["Celiac Disease", "Oral Allergy Syndrome", "Atopic Dermatitis"]]
+
 
 # Create your views here.
 def home_view(request):
-    print("User on website")
+    data = {
+        "symptoms_matrix": allergy_symptoms,
+        "seasons": seasons,
+        "medical_conditions": medical_conditions
+    }
+
     if request.method == "GET":
-        return render(request, 'home.html', {"symptoms_matrix": allergy_symptoms})
+        return render(request, 'home.html', data)
     elif request.method == "POST":
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         age = request.POST.get('age')
         print(request.POST)
-        print(first_name, last_name)
-        print(age)
-        return render(request, 'home.html', {"success": True})
+        print(first_name, last_name, age)
+        print(request.POST.getlist('symptoms'))
+        print(request.POST.getlist('seasons'))
+        print(request.POST.getlist('medical_conditions'))
+        return render(request, 'home.html', data)
