@@ -13,7 +13,7 @@ allergies = {"pollen": ["sneezing", "nasal congestion", "sinus pressure", "runny
                        "itchy and/or watery eyes", "sneezing", "shortness of breath"],
              "insects": ["pain", "redness", "swelling", "flushing", "skin rashes", "itching", "anaphylaxis",
                          "throat and/or mouth swelling", "fainting", "blurry vision", "temporary hearing loss"],
-             "pets": ["sneezing", "runny nose", "sinus pressure", "itchy and/or watery eyes", "skin rashes"
+             "pets": ["sneezing", "runny nose", "sinus pressure", "itchy and/or watery eyes", "skin rashes",
                       "chest tightness", "shortness of breath", "nose and/or throat swelling", "anaphylaxis"],
              "medication": ["wheezing", "shortness of breath", "throat and/or mouth swelling",
                             "nausea", "diarrhea", "fainting", "anaphylaxis"],
@@ -21,6 +21,7 @@ allergies = {"pollen": ["sneezing", "nasal congestion", "sinus pressure", "runny
                       "throat and/or mouth swelling", "breathing difficulties", "itchy and/or watery eyes",
                       "lightheadedness", "anaphylaxis"]}
 
+allergy_types = list(allergies.keys())
 
 symptoms = []
 for key in allergies:
@@ -58,7 +59,8 @@ def home_view(request):
     data = {
         "symptoms_matrix": allergy_symptoms,
         "seasons": seasons,
-        "medical_conditions": medical_conditions
+        "medical_conditions": medical_conditions,
+        "allergies": allergy_types
     }
 
     if request.method == "GET":

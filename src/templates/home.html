@@ -30,7 +30,7 @@
             <label for="age">Age:</label>
             <input type="text" id="age" name="age">
         </section>
-
+        <h3>*Note: if "no" applies, do not check any boxes.</h3>
         <hr>
 
         <section id="symptoms">
@@ -118,8 +118,30 @@
                     <tr>
                         {% for cond in row %}
                             <td>
-                                <input type="checkbox" id={{cond}} name="medical_conditions" value={{cond}}>
-                                <label for="{{cond}}">{{ cond }}</label>
+                                <input type="checkbox" id={{cond1}} name="medical_conditions" value={{cond}}>
+                                <label for="{{cond1}}">{{ cond }}</label>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+
+        <section>
+            <h3>Family History</h3>
+            <h4>Have anyone in your family have or have had the following allergies?</h4>
+            {% for allergy in allergies %}
+                <input type="checkbox" id={{allergy}} name="allergies" value={{allergy}}>
+                <label for="{{allergy}}">{{ allergy }}</label>
+            {% endfor %}
+            <h4>Do you have any family members with the following medical conditions?</h4>
+            <table>
+                {% for row in medical_conditions %}
+                    <tr>
+                        {% for cond in row %}
+                            <td>
+                                <input type="checkbox" id={{cond2}} name="medical_conditions" value={{cond}}>
+                                <label for="{{cond2}}">{{ cond }}</label>
                             </td>
                         {% endfor %}
                     </tr>
@@ -132,9 +154,6 @@
         </section>
 
     </form>
-
-
-
 
 </body>
 </html>
