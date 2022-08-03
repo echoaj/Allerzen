@@ -1,13 +1,15 @@
-# impot default dictionary
+import json
 
+with open('survey/allergies.json', 'r') as json_file:
+    json_data = json.load(json_file)['allergies']
 
 allergies = {"pollen": 0, "mold": 0, "dust": 0, "latex": 0, "insects": 0, "pets": 0, "medication": 0, "food": 0}
 
 
-class Survey:
-    def __init__(self):
-        self.syptoms = ["runny nose", "itching"]
-        self.seasons = ["April", "May", "June"]
+# class Survey:
+#     def __init__(self):
+#         self.syptoms = ["runny nose", "itching"]
+#         self.seasons = ["April", "May", "June"]
 
 
 class Symptoms:
@@ -17,8 +19,11 @@ class Symptoms:
         self.next_chain = next_chain
 
     def calculate(self, survey):
+        print("Survey: ", survey)
         print("Calculating Symptoms")
-        self.next_chain.calculate(survey)
+        user_symptoms = survey.getlist("symptoms")
+        print("User Symptoms: ", user_symptoms)
+        return self.next_chain.calculate(survey)
 
 
 class Seasons:
@@ -29,14 +34,21 @@ class Seasons:
 
     def calculate(self, survey):
         print("Calculating seasons")
-        # self.next_chain.calculate()
+        return self.next_chain.calculate(survey)
 
 
-survey = Survey()
+class Result:
+    def calculate(self, survey):
+        return "You are allergic to pollen"
 
-symp = Symptoms()
+
+# survey = Survey()
+algo = Symptoms()
 seas = Seasons()
-# chains
-symp.set_next_chain(seas)
+result = Result()
 
-symp.calculate(survey)
+# chains
+algo.set_next_chain(seas)
+seas.set_next_chain(result)
+
+# symp.calculate()
