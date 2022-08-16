@@ -1,0 +1,1 @@
+web: gunicorn allerzen.wsgi --log-file -
