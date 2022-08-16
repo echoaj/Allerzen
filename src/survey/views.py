@@ -50,6 +50,7 @@ def home_view(request):
     if request.method == "GET":
         return render(request, 'home.html', data)
     elif request.method == "POST":
+        clear_allergies()
         result = algo.calculate(request.POST)
         data['result'] = result
         return render(request, 'home.html', data)

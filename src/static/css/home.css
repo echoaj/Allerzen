@@ -15,3 +15,15 @@ body {
 #result{
     color: red;
 }
+
+#submitButton {
+    display: block;
+    margin-top: 20px;
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#submitButton:hover {
+    background-color: green;
+}
